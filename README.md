@@ -13,3 +13,5 @@
 [ここ](https://www.ssa.gov/oact/babynames/limits.html)の[National data](https://www.ssa.gov/oact/babynames/names.zip)を加工して作った。
 [popular-names.txt](chap02/data/popular-names.txt)
 
+### 3章 jawiki-country.json.gz
+[言語処理100本ノック2015](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の3章からもらってくる。[jawiki-country.json.gz](http://www.cl.ecei.tohoku.ac.jp/nlp100/data/jawiki-country.json.gz)
