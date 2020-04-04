@@ -15,3 +15,7 @@
 
 ### 3章 jawiki-country.json.gz
 [言語処理100本ノック2015](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の3章からもらってくる。[jawiki-country.json.gz](http://www.cl.ecei.tohoku.ac.jp/nlp100/data/jawiki-country.json.gz)
+
+### 4章 neko.txt
+[言語処理100本ノック2015](http://www.cl.ecei.tohoku.ac.jp/nlp100/)の3章からもらってくる。[neko.txt](http://www.cl.ecei.tohoku.ac.jp/nlp100/data/neko.txt)
+
