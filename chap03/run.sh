@@ -2,7 +2,7 @@
 
 mkdir -p data
 cd data
-wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/jawiki-country.json.gz
+wget https://nlp100.github.io/data/jawiki-country.json.gz
 gzip -d jawiki-country.json.gz
 cd ..
 

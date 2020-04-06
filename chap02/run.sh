@@ -1,27 +1,21 @@
-#!/bin/bash
+#!/bin/bash -v
 
 mkdir -p data
 
 
 # popular-names.txt が無いので作る。
 cd data
-wget https://www.ssa.gov/oact/babynames/names.zip
-unzip names.zip
-rm -f popular-names.txt
-for year in `seq 1880 2018`; do
-	cat yob${year}.txt | tr -d '\r' | awk -F ',' "BEGIN{OFS=\"\t\"}{ print \$1,\$2,\$3,$year }" >> popular-names.txt
-done
-rm names.zip NationalReadMe.pdf yob????.txt
+wget https://nlp100.github.io/data/popular-names.txt
 cd ..
 
 
 # ================== No. 10 ==================
 
 cat data/popular-names.txt | python3 q10.py
-# 1957046
+# 2780
 
 wc -l data/popular-names.txt
-# 1957046 data/popular-names.txt
+# 2780 data/popular-names.txt
 
 
 # ================== No. 11 ==================
@@ -82,18 +76,18 @@ cat data/popular-names.txt | head -n5
 # ================== No. 15 ==================
 
 cat data/popular-names.txt | python3 q15.py 5
-# Zylas	M	5	2018
-# Zyran	M	5	2018
-# Zyrie	M	5	2018
-# Zyron	M	5	2018
-# Zzyzx	M	5	2018
+# Benjamin	M	13381	2018
+# Elijah	M	12886	2018
+# Lucas	M	12585	2018
+# Mason	M	12435	2018
+# Logan	M	12352	2018
 
 cat data/popular-names.txt | tail -n5
-# Zylas	M	5	2018
-# Zyran	M	5	2018
-# Zyrie	M	5	2018
-# Zyron	M	5	2018
-# Zzyzx	M	5	2018
+# Benjamin	M	13381	2018
+# Elijah	M	12886	2018
+# Lucas	M	12585	2018
+# Mason	M	12435	2018
+# Logan	M	12352	2018
 
 
 # ================== No. 16 ==================
@@ -106,39 +100,49 @@ split data/popular-names.txt data/popular-names.cmd.txt. -d -a 1 -l $(expr $(cat
 # ================== No. 17 ==================
 
 cat data/popular-names.txt | python3 q17.py | head -n5
-# Aaban
-# Aabha
-# Aabid
-# Aabidah
-# Aabir
+# Abigail
+# Aiden
+# Alexander
+# Alexis
+# Alice
 
 cat data/popular-names.txt | cut -f1 | sort | uniq | head -n5
-# Aaban
-# Aabha
-# Aabid
-# Aabidah
-# Aabir
+# Abigail
+# Aiden
+# Alexander
+# Alexis
+# Alice
 
 
 # ================== No. 18 ==================
 
-cat data/popular-names.txt | python3 q18.py
+cat data/popular-names.txt | python3 q18.py | head -n5
+# Linda	F	99689	1947
+# Linda	F	96211	1948
+# James	M	94757	1947
+# Michael	M	92704	1957
+# Robert	M	91640	1947
 
-cat data/popular-names.txt | sort -nrk 3
+cat data/popular-names.txt | sort -nrk 3 | head -n5
+# Linda	F	99689	1947
+# Linda	F	96211	1948
+# James	M	94757	1947
+# Michael	M	92704	1957
+Robert	M	91640	1947
 
 
 # ================== No. 19 ==================
 
 cat data/popular-names.txt | python3 q19.py | head -n5
-# Jessie
-# Ollie
-# Marion
-# Jean
-# Francis
+# James
+# William
+# John
+# Robert
+# Mary
 
 cat data/popular-names.txt | cut -f1 | sort | uniq -c | sed -e 's/^\s*//g' -e 's/ /\t/g' | sort -nr | cut -f2 | head -n5
+# James
 # William
-# Tommie
-# Sidney
-# Ollie
-# Marion
+# Robert
+# John
+# Mary

@@ -3,7 +3,7 @@
 mkdir -p data
 
 # cd data
-# wget http://www.cl.ecei.tohoku.ac.jp/nlp100/data/neko.txt
+# wget https://nlp100.github.io/data/neko.txt
 # cd ..
 
 # # MeCabのオプションでJSON形式にしておく
