@@ -22,25 +22,26 @@ class Morph():
 
 
 
-tree = ET.parse(sys.argv[1])
-document = tree.getroot()
+if __name__ == '__main__':
+	tree = ET.parse(sys.argv[1])
+	document = tree.getroot()
 
-sentences = list()
+	sentences = list()
 
-for sentence in document:
-	morphs = list()
-	for chunk in sentence:
-		for morph in chunk:
-			m = morph.attrib['feature'].split(',')
-			surface = morph.text
-			pos = m[0]
-			pos1 = m[1]
-			base = m[6]
-			morph = Morph(surface, pos, pos1, base)
-			morphs.append(morph)
-	sentences.append(morphs)
+	for sentence in document:
+		morphs = list()
+		for chunk in sentence:
+			for morph in chunk:
+				m = morph.attrib['feature'].split(',')
+				surface = morph.text
+				pos = m[0]
+				pos1 = m[1]
+				base = m[6]
+				morph = Morph(surface, base, pos, pos1)
+				morphs.append(morph)
+		sentences.append(morphs)
 
 
-for morph in sentences[2]:
-	print(morph)
+	for morph in sentences[2]:
+		print(morph)
 
