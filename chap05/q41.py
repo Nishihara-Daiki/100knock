@@ -24,11 +24,18 @@ class Chunk():
 	def __str__(self):
 		return  ' '.join(morph.surface for morph in self.morphs)
 
-tree = ET.parse(sys.argv[1])
-document = tree.getroot()
+	def has_pos(self, pos):
+		return pos in {m.pos for m in self.morphs}
+
+	def has_morph(self, surface='', ):
+		"""
+		"""
+
 
 
 def q41():
+	tree = ET.parse(sys.argv[1])
+	document = tree.getroot()
 	sentences = list()
 	for sentence in document:
 		chunks = list()
