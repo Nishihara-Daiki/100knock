@@ -27,10 +27,18 @@ class Chunk():
 	def has_pos(self, pos):
 		return pos in {m.pos for m in self.morphs}
 
-	def has_morph(self, surface='', ):
+	def find_morph(self, surface='', base='', pos='', pos1=''):
 		"""
+		検索条件に一致するmorphを全て返す
 		"""
+		if type(surface) is str: surface = [s for s in [surface] if s]
+		if type(base)    is str: base = [b for b in [base] if b]
+		if type(pos)     is str: pos = [p for p in [pos] if p]
+		if type(pos1)    is str: pos1 = [p for p in [pos1] if p]
+		return [morph for morph in self.morphs if (morph.surface in surface or not surface) and (morph.base in base or not base) and (morph.pos in pos or not pos) and (morph.pos1 in pos1 or not pos1)]
 
+	def find_morph_surface(self, surface='', base='', pos='', pos1=''):
+		return [m.surface for m in self.find_morph(surface, base, pos, pos1)]
 
 
 def q41():

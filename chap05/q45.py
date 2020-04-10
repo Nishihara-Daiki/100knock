@@ -19,13 +19,13 @@ from collections import defaultdict
 sentences = q41()
 
 for sentence in sentences:
-	idx2varb_joshi = defaultdict(list)
+	idx_varb2joshi = defaultdict(list)
 	for chunk in sentence:
-		if chunk.has_pos('助詞') and sentence[chunk.dst].has_pos('動詞'):
-			for morph in sentence[chunk.dst].morphs:
-				if morph.pos == '動詞':
-					jutugo = morph.surface
-					break
-			key = str(chunk.dst) + ' ' + jutugo
-			idx2varb_joshi[key].append(morph.surface)
-	print(idx2varb_joshi)
+		kakus = chunk.find_morph_surface(pos='助詞')
+		jutugos = sentence[chunk.dst].find_morph(pos='動詞')
+		if kakus and jutugos and chunk.dst != -1:
+			key = str(chunk.dst) + ' ' + jutugos[0].base
+			idx_varb2joshi[key] += kakus
+
+	for key,value in sorted(idx_varb2joshi.items()):
+		print('{}\t{}'.format(key.split(' ')[1], ' '.join(sorted(value))))
