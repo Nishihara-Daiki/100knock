@@ -54,14 +54,33 @@ mkdir -p data
 # # 我々 を	捕え て
 
 
-python3 q44.py data/neko.txt.cabocha
+# python3 q44.py data/neko.txt.cabocha
 
 
-python3 q45.py data/neko.txt.cabocha
+# python3 q45.py data/neko.txt.cabocha | head
+# # 生れる	で
+# # つく	か が
+# # 泣く	で
+# # する	だけ て は
+# # 始める	で
+# # 見る	は を
+# # 聞く	で
+# # 捕える	を
+# # 煮る	て
+# # 食う	て
 
 
-python3 q46.py data/neko.txt.cabocha
-
+# python3 q46.py data/neko.txt.cabocha | head
+# # 生れる	で	　どこで 
+# # つく	か が	生れたか 見当が 
+# # 泣く	で	所で 
+# # する	だけ て は	いた事だけは 泣いて いた事だけは 
+# # 始める	で	ここで 
+# # 見る	は を	吾輩は ものを 
+# # 聞く	で	あとで 
+# # 捕える	を	我々を 
+# # 煮る	て	捕えて 
+# # 食う	て	煮て 
 
 python3 q47.py data/neko.txt.cabocha
 
