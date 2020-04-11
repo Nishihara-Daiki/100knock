@@ -22,7 +22,7 @@ class Chunk():
 		self.srcs = srcs
 
 	def __str__(self):
-		return  ' '.join(morph.surface for morph in self.morphs)
+		return  ''.join(morph.surface for morph in self.morphs)
 
 	def has_pos(self, pos):
 		return pos in {m.pos for m in self.morphs}

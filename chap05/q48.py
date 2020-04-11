@@ -16,14 +16,22 @@ from q41 import q41
 
 sentences = q41()
 
-for sentence in sentences:
-	for chunk in sentence:
-		if chunk.find_morph(pos='名詞'):
-			chunk_chain = list()
-			while True:
-				chunk_chain.append(str(chunk).replace(' ', ''))
-				if chunk.dst == -1:
-					break
-				chunk = sentence[chunk.dst]
-			if chunk_chain:
-				print(' -> '.join(chunk_chain))
+
+def get_chunk_to_root(chunk, sentence):
+	chunk_chain = list()
+	while True:
+		chunk_chain.append(chunk)
+		if chunk.dst == -1:
+			break
+		chunk = sentence[chunk.dst]
+	return chunk_chain
+
+
+if __name__ == '__main__':
+	for sentence in sentences:
+		for chunk in sentence:
+			if chunk.find_morph(pos='名詞'):
+				chunk_chain = get_chunk_to_root(chunk, sentence)
+				if chunk_chain:
+					chunk_chain = map(str, chunk_chain)
+					print(' -> '.join(chunk_chain))

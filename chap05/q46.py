@@ -28,5 +28,5 @@ for sentence in sentences:
 	for key,value in sorted(idx_varb2joshi.items()):
 		varb = key.split(' ')[1]
 		kakus, kaku_chunks = zip(*sorted(value, key=lambda x: x[0]))
-		kaku_chunks = map(lambda x: str(x).replace(' ', ''), kaku_chunks)
+		kaku_chunks = map(str, kaku_chunks)
 		print('{}\t{}\t{} '.format(varb, ' '.join(kakus), ' '.join(kaku_chunks)))

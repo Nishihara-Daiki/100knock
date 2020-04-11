@@ -11,7 +11,7 @@ sentences = q41()
 for sentence in sentences:
 	for chunk in sentence:
 		if chunk.dst != -1:
-			chunk_s = ' '.join(morph.surface for morph in chunk.morphs if morph.pos != '記号')
-			dstchunk_s = ' '.join(morph.surface for morph in sentence[chunk.dst].morphs if morph.pos != '記号')
+			chunk_s = ''.join(morph.surface for morph in chunk.morphs if morph.pos != '記号')
+			dstchunk_s = ''.join(morph.surface for morph in sentence[chunk.dst].morphs if morph.pos != '記号')
 			if chunk_s and dstchunk_s:
 				print(chunk_s + '\t' + dstchunk_s)

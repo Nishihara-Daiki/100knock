@@ -34,6 +34,6 @@ for sentence in sentences:
 			wo_idx = kakus.index('を')
 			wo_kaku = kakus.pop(wo_idx)
 			wo_kaku_chunk = kaku_chunks.pop(wo_idx)
-			kaku_chunks = map(lambda x: str(x).replace(' ', ''), kaku_chunks)
-			varb = str(wo_kaku_chunk).replace(' ', '') + varb
+			kaku_chunks = map(str, kaku_chunks)
+			varb = str(wo_kaku_chunk) + varb
 			print('{}\t{}\t{} '.format(varb, ' '.join(kakus), ' '.join(kaku_chunks)))
