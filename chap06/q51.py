@@ -9,6 +9,7 @@
 """
 
 import sys
+import math
 from collections import Counter, defaultdict
 
 tag2id = {
@@ -17,7 +18,6 @@ tag2id = {
 	'e': 2,
 	'm': 3
 }
-
 
 # 各単語のラベルごとの出現分布
 with open('data/train.txt') as f:
@@ -28,7 +28,7 @@ with open('data/train.txt') as f:
 		label = tag2id[label]
 		label2words_list[label].update(sentence.split())
 	for key in {key for i in range(4) for key in label2words_list[i].keys()}:
-		word2freqs[key] = [label2words_list[i][key] for i in range(4)]
+		word2freqs[key] = [math.log(label2words_list[i][key] + 1) for i in range(4)]
 
 
 def main():
