@@ -1,5 +1,5 @@
 """
-	52. 学習Permalink
+	52. 学習
 	51で構築した学習データを用いて，ロジスティック回帰モデルを学習せよ．
 """
 
@@ -13,7 +13,7 @@ def main():
 
 
 def train(X_train, y_train):
-	lr = LogisticRegression()
+	lr = LogisticRegression(solver='liblinear', multi_class='auto', random_state=0)
 	lr.fit(X_train, y_train)
 	return lr
 
@@ -23,7 +23,7 @@ def load_features(train_feature_filename):
 	with open(train_feature_filename) as f:
 		for line in f:
 			line = line.split(' ')
-			features = line[:-1]
+			features = list(map(float, line[:-1]))
 			label = int(line[-1])
 			X_train.append(features)
 			y_train.append(label)
