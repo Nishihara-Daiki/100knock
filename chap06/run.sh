@@ -60,3 +60,30 @@ python3 q53.py data/train.feature.txt data/test.feature.txt
 python3 q54.py data/train.feature.txt data/test.feature.txt
 # train score = 0.971546237364283
 # test score = 0.8937125748502994
+
+
+python3 q55.py data/train.feature.txt data/test.feature.txt
+# train =
+# [[4373   54   65   11]
+#  [  63 1123   23    1]
+#  [  33   10 4207    4]
+#  [  15    7   18  677]]
+# test =
+# [[524  16  19   6]
+#  [ 33 112  13   5]
+#  [ 13   7 495   3]
+#  [ 15   2  10  63]]
+
+
+python3 q56.py data/train.feature.txt data/test.feature.txt
+#               precision    recall  f1-score   support
+# 
+#            0       0.90      0.93      0.91       565
+#            1       0.82      0.69      0.75       163
+#            2       0.92      0.96      0.94       518
+#            3       0.82      0.70      0.75        90
+# 
+#     accuracy                           0.89      1336
+#    macro avg       0.86      0.82      0.84      1336
+# weighted avg       0.89      0.89      0.89      1336
+
