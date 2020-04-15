@@ -88,6 +88,26 @@ python3 q56.py data/train.feature.txt data/test.feature.txt
 # weighted avg       0.89      0.89      0.89      1336
 
 
-
 python3 q57.py data/train.feature.txt data/test.feature.txt
+# class bussiness
+# best 10  = [3, 5, 4, 1, 0, 2]
+# worst 10 = [2, 0, 1, 4, 5, 3]
+# class science and technology
+# best 10  = [2, 4, 5, 1, 0, 3]
+# worst 10 = [3, 0, 1, 5, 4, 2]
+# class entertainment
+# best 10  = [5, 3, 2, 0, 1, 4]
+# worst 10 = [4, 1, 0, 2, 3, 5]
+# class health
+# best 10  = [4, 2, 3, 1, 0, 5]
+# worst 10 = [5, 0, 1, 3, 2, 4]
 
+
+python3 q58.py data/train.feature.txt data/dev.feature.txt data/test.feature.txt
+
+
+python3 q59.py data/train.feature.txt data/dev.feature.txt data/test.feature.txt
+# name = logistic regression
+# args = {'penalty': 'l1', 'C': 1.0, 'solver': 'liblinear', 'multi_class': 'auto', 'random_state': 0}
+# dev accuracy = 0.9011976047904192
+# test accuracy = 0.8952095808383234

@@ -29,10 +29,8 @@ def main():
 	for i,c in enumerate(coef):
 		print('class ' + class_names[i])
 		order = [y[1] for y in sorted([(x, j) for j,x in enumerate(c)])]
-		print('best 10')
-		print(order[:10])
-		print('worst 10')
-		print(order[:10][::-1])
+		print('best 10  = {}'.format(order[:10]))
+		print('worst 10 = {}'.format(order[:10][::-1]))
 
 
 if __name__ == '__main__':
