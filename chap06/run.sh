@@ -87,3 +87,7 @@ python3 q56.py data/train.feature.txt data/test.feature.txt
 #    macro avg       0.86      0.82      0.84      1336
 # weighted avg       0.89      0.89      0.89      1336
 
+
+
+python3 q57.py data/train.feature.txt data/test.feature.txt
+
