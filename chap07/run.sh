@@ -1,8 +1,10 @@
 #!/bin/bash
 
 cd data
-gzip -d  GoogleNews-vectors-negative300.bin.gz
+gzip -d GoogleNews-vectors-negative300.bin.gz
 wget http://download.tensorflow.org/data/questions-words.txt
+wget http://www.gabrilovich.com/resources/data/wordsim353/wordsim353.zip
+unzip -j wordsim353.zip combined.tab
 cd ..
 
 
@@ -49,16 +51,33 @@ python3 q63.py data/GoogleNews-vectors-negative300.bin
 # Iraklion	0.5146791934967041
 
 
-python3 q64.py data/GoogleNews-vectors-negative300.bin questions-words.txt
+python3 q64.py data/GoogleNews-vectors-negative300.bin data/questions-words.txt > data/q64.txt
 
 
-python3 q65.py data/GoogleNews-vectors-negative300.bin
+python3 q65.py data/q64.txt
+# semantic accuracy = 0.7308602999210734
+# syntactic accuracy = 0.7400468384074942
 
 
-python3 q66.py data/GoogleNews-vectors-negative300.bin
+python3 q66.py data/GoogleNews-vectors-negative300.bin data/combined.tab
+# SpearmanrResult(correlation=0.7000166486272194, pvalue=2.86866666051422e-53)
 
 
 python3 q67.py data/GoogleNews-vectors-negative300.bin
+# class 0:
+# United_States, Untied_States, Unites_States, countries, United_Sates
+# 
+# class 1:
+# region, thecountry, coun_try, coutnry, counry, national, abroad, coutry
+# 
+# class 2:
+# nation, America
+# 
+# class 3:
+# continent, world, globe
+# 
+# class 4:
+# countrys, countryâ_€_™
 
 
 python3 q68.py data/GoogleNews-vectors-negative300.bin
